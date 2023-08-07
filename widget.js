@@ -1,5 +1,6 @@
 
 function createWidget() {
+  console.log("createWidget")
     const Widget = Object.create({
         create(id) {
             const style = `
@@ -17,7 +18,7 @@ function createWidget() {
             }
   
         `
-            snippet = document.currentScript.innerHTML
+            // snippet = document.currentScript.innerHTML
 
             const wdg = document.createElement("div");
             wdg.innerHTML = `
@@ -26,7 +27,6 @@ function createWidget() {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>${ style }</style>
-            <title>Hello World Widget</title>
         </head>
         <div class=\"widgetContainer${id}\">   
         <iframe sandbox=\'allow-scripts\' id=\'sandboxed-${ id }\' class=\'logFrame${ id }\' title=\'Console Frame\'></iframe>
@@ -43,7 +43,7 @@ function createWidget() {
     const myWidgetInstance = Widget.create(id);
     document.write(`<div id= ${id} ></div>`);
     document.getElementById(id).appendChild(myWidgetInstance);
-
+    console.log(id)
     let ifr = document.getElementById(`sandboxed-${id}`)
     ifr.srcdoc = `
 

@@ -1,5 +1,6 @@
 
 function createWidget() {
+    
     const Widget = Object.create({
         create(id) {
             const style = `
@@ -43,7 +44,7 @@ function createWidget() {
     const myWidgetInstance = Widget.create(id);
     document.write(`<div id= ${id} ></div>`);
     document.getElementById(id).appendChild(myWidgetInstance);
-
+    console.log("createWidget")
     let ifr = document.getElementById(`sandboxed-${id}`)
     ifr.srcdoc = `
 
